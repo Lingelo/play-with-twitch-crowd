@@ -1,0 +1,25 @@
+{
+  "name": "play-with-twitch-crowd",
+  "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "node -r ts-node/register --env-file=.env src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hzoo/play-with-twitch-crowd.git"
+  },
+  "dependencies": {
+    "@types/node": "^22.10.1",
+    "@types/tmi.js": "^1.8.6",
+    "robotjs": "^0.6.0",
+    "tmi.js": "1.5.0",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}
