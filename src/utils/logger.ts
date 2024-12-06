@@ -1,18 +1,20 @@
 import winston from 'winston'
-import {config} from "../config/config"
+import { config } from '../config/config'
 
 const logger = winston.createLogger({
-    level: config.logLevel,
-    format: winston.format.combine(
-        winston.format.timestamp(),
-        winston.format.printf(({timestamp, level, message}) => {
-            return `${timestamp} [${level}]: ${message}`
-        })
-    ),
-    transports: [
-        new winston.transports.Console(),
-        new winston.transports.File({ filename: `${new Date().toISOString()}.log` })
-    ]
+	level: config.logLevel,
+	format: winston.format.combine(
+		winston.format.timestamp(),
+		winston.format.printf(({ timestamp, level, message }) => {
+			return `${timestamp} [${level}]: ${message}`
+		})
+	),
+	transports: [
+		new winston.transports.Console(),
+		new winston.transports.File({
+			filename: `${new Date().toISOString()}.log`,
+		}),
+	],
 })
 
 export default logger

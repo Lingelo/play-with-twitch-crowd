@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "dev": "node -r ts-node/register --env-file=.env src/index.ts"
+    "dev": "node -r ts-node/register --env-file=.env src/index.ts",
+    "format": "prettier --write 'src/**/*.ts'"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
     "winston": "^3.17.0"
   },
   "devDependencies": {
+    "prettier": "^3.4.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }
