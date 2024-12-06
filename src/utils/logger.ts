@@ -5,6 +5,7 @@ const logger = winston.createLogger({
 	level: config.logLevel,
 	format: winston.format.combine(
 		winston.format.timestamp(),
+		winston.format.colorize(),
 		winston.format.printf(({ timestamp, level, message }) => {
 			return `${timestamp} [${level}]: ${message}`
 		})
