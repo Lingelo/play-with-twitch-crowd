@@ -27,6 +27,8 @@ export class KeySender {
 		if (this.isThrottleExceeded(key)) {
 			return
 		}
+		robot.setKeyboardDelay(100)
+		robot.mouseClick('left')
 		robot.keyTap(key)
 	}
 
