@@ -1,0 +1,112 @@
+{
+  "preferences": {
+    "workingDirectory": "."
+  },
+  "tools": {
+    "bash": {
+      "enabled": true,
+      "settings": {
+        "timeout": 120000
+      }
+    },
+    "computer": {
+      "enabled": false
+    }
+  },
+  "rules": [
+    "Ce projet est un émulateur d'entrées Twitch pour contrôler des jeux via le chat Twitch",
+    "Utilise TypeScript avec Node.js, tmi.js pour Twitch, RobotJS pour les inputs, et Winston pour les logs",
+    "La méthode d'input avancée (USE_ADVANCED_INPUT=true) utilise keyToggle et fonctionne mieux avec les émulateurs",
+    "Les commandes principales sont: up, down, left, right, a, b, x, y, start, select",
+    "Le système de throttling prévient le spam avec timeToWait configurable",
+    "Toujours tester les builds avec 'yarn build' après les modifications",
+    "Utiliser LOG_LEVEL=debug pour le debugging détaillé",
+    "Le projet nécessite les permissions d'accessibilité sur macOS pour RobotJS"
+  ],
+  "projectInfo": {
+    "name": "PlayWithTwitchCrowd",
+    "description": "Émulateur d'entrées Twitch inspiré de Twitch Plays Pokémon",
+    "version": "0.0.1",
+    "framework": "Node.js + TypeScript",
+    "primaryLanguage": "typescript",
+    "buildCommand": "yarn build",
+    "devCommand": "yarn dev",
+    "testCommand": null,
+    "lintCommand": "yarn format"
+  },
+  "environmentVariables": {
+    "required": [
+      "TWITCH_CHANNEL"
+    ],
+    "optional": [
+      "LOG_LEVEL",
+      "LOG_FILE", 
+      "USE_ADVANCED_INPUT",
+      "CONFIG_PROGRAM_NAME"
+    ]
+  },
+  "filePatterns": {
+    "include": [
+      "src/**/*.ts",
+      "*.json",
+      "*.md",
+      ".env*"
+    ],
+    "exclude": [
+      "node_modules/**",
+      "dist/**",
+      "*.log",
+      ".git/**"
+    ]
+  },
+  "commonTasks": {
+    "build": {
+      "command": "yarn build",
+      "description": "Compile TypeScript vers JavaScript"
+    },
+    "dev": {
+      "command": "yarn dev", 
+      "description": "Lancer en mode développement avec hot reload"
+    },
+    "format": {
+      "command": "yarn format",
+      "description": "Formater le code avec Prettier"
+    },
+    "debug": {
+      "command": "LOG_LEVEL=debug yarn dev",
+      "description": "Lancer avec logs détaillés pour debugging"
+    },
+    "simple-input": {
+      "command": "USE_ADVANCED_INPUT=false yarn dev",
+      "description": "Utiliser la méthode d'input simple si l'avancée ne fonctionne pas"
+    }
+  },
+  "codeStyle": {
+    "useTabs": true,
+    "indentSize": 4,
+    "formatter": "prettier",
+    "linting": false,
+    "preferences": [
+      "Utiliser des imports ES6 avec chemins relatifs",
+      "Préférer const/let au lieu de var",
+      "Utiliser des types TypeScript explicites pour les interfaces",
+      "Logger avec Winston au lieu de console.log",
+      "Gestion d'erreurs avec try/catch pour RobotJS",
+      "Configuration centralisée dans src/config/config.ts"
+    ]
+  },
+  "debugging": {
+    "logFiles": [
+      "*.log",
+      "src/utils/logger.ts"
+    ],
+    "configFiles": [
+      ".env",
+      "src/config/config.ts"
+    ],
+    "keyFiles": [
+      "src/key-sender.ts",
+      "src/pokemon-plays-x.ts"
+    ]
+  }
+}
