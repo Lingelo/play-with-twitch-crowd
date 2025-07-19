@@ -30,7 +30,7 @@ export class PokemonPlaysX {
 					if (self) return
 					if (this.isMessageMatching(message)) {
 						logger.debug(`@${tags.username}: ${message}`)
-						this.keyHandler.sendKey(message.toLowerCase())
+						this.keyHandler.sendKey(message)
 					}
 				}
 			}

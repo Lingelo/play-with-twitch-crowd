@@ -28,7 +28,7 @@ const defaultKeyMap = {
 }
 
 export const config: Config = {
-	commands: Object.values(defaultKeyMap),
+	commands: Object.keys(defaultKeyMap),
 	keyMap: defaultKeyMap,
 	channel: process.env.TWITCH_CHANNEL || '',
 	programName: process.env.CONFIG_PROGRAM_NAME || '',
